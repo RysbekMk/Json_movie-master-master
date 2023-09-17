@@ -4,16 +4,17 @@ package model;
 //  id,name,genre(enum),createDate(LocalDate),касса
 
 import model.enums.Genre;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Objects;
 
 public class Movie {
-    private int  id;
+    private int id;
     private String name;
     private Genre genre;
-    private  LocalDate date ;
+    private LocalDate date;
     private int cash;
 
     public Movie(int id, String name, Genre genre, LocalDate date, int cash) {
@@ -27,11 +28,11 @@ public class Movie {
     public Movie() {
     }
 
-    public int  getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(int  id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -72,7 +73,8 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return id == movie.id && cash == movie.cash && Objects.equals(name, movie.name) && genre == movie.genre && Objects.equals(date, movie.date);
+        return id == movie.id && cash == movie.cash && Objects.equals(name, movie.name) &&
+                genre == movie.genre && Objects.equals(date, movie.date);
     }
 
     @Override

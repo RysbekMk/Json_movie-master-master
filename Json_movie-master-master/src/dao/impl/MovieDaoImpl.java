@@ -16,9 +16,7 @@ public class MovieDaoImpl implements MovieDao {
     @Override
     public void writeToFile(String path, List<Movie> movies) {
         try {
-            Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
-                    .create();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter()).create();
             String jsonString = gson.toJson(movies);
             try (FileWriter fileWriter = new FileWriter(path)) {
                 fileWriter.write(jsonString);
@@ -36,9 +34,7 @@ public class MovieDaoImpl implements MovieDao {
     public List<Movie> readFromFile(String path) {
         StringBuilder stringBuilder = new StringBuilder();
         List<Movie> movieList = new ArrayList<>();
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
-                .create();
+        Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter()).create();
         try {
             FileReader fileReader = new FileReader(path);
             Scanner scanner = new Scanner(fileReader);
