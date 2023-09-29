@@ -2,7 +2,6 @@ package service;
 
 import com.google.gson.*;
 
-import javax.imageio.plugins.tiff.TIFFField;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

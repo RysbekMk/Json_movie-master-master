@@ -14,7 +14,7 @@ import java.util.*;
 public class MovieDaoImpl implements MovieDao {
     // TODO: 14.09.2023 положить фильм в указанной JSON файл
     @Override
-    public void writeToFile(String path, List<Movie> movies) {
+    public void writeToFile(String path, List<Movie> movies)  {
         try {
             Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter()).create();
             String jsonString = gson.toJson(movies);

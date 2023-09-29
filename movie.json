@@ -1,1 +1,30 @@
-[{"id":2,"name":"Interstellar","genre":"Fantasy","date":"2014-10-26","cash":715751038},{"id":1,"name":"Forest Gump","genre":"Drama","date":"1994-03-21","cash":678226465},{"id":3,"name":"Slumdog Millionaire","genre":"Drama","date":"2008-08-30","cash":378000000},{"id":4,"name":"Wolf creek","genre":"Drama","date":"1983-11-10","cash":123456789}]
+[
+  {
+    "id": 2,
+    "name": "1+1",
+    "genre": "Drama",
+    "date": "2006-03-23",
+    "cash": 715751038
+  },
+  {
+    "id": 2,
+    "name": "1+1",
+    "genre": "Drama",
+    "date": "2006-03-23",
+    "cash": 678226465
+  },
+  {
+    "id": 3,
+    "name": "1+1",
+    "genre": "Drama",
+    "date": "2006-03-23",
+    "cash": 378000000
+  },
+  {
+    "id": 4,
+    "name": "Wolf creek",
+    "genre": "Drama",
+    "date": "1983-11-10",
+    "cash": 123456789
+  }
+]

@@ -8,6 +8,7 @@ import service.MovieService;
 
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.function.Supplier;
 
 
 public class MovieServiceImpl implements MovieService {
@@ -20,11 +21,10 @@ public class MovieServiceImpl implements MovieService {
         Movie movie = new Movie();
         try {
             movie = movieDao.readFromFile(PATH).stream().filter(movie1 -> movie1.getId() == movieId)
-                    .findFirst().orElseThrow();
+                    .findFirst().orElseThrow(()-> new RuntimeException("File not found !"));
         } catch (NoSuchElementException s) {
-            s.printStackTrace();
+            System.out.println(s.getMessage());
         }
-
         return movie;
     }
 
@@ -69,19 +69,19 @@ public class MovieServiceImpl implements MovieService {
     @Override
     // TODO: 14.09.2023 найти обьект по ID и изменить его состояние
     public void updateById(int movieId, Movie movie) {
-        List<Movie> movies = new ArrayList<>();
-        try {
-            Movie movie1 = findById(movieId);
-            List<Movie> movieList = movieDao.readFromFile(PATH).stream().toList();
-            for (Movie movie2 : movieList) {
-                if (!movie2.equals(movie1)) {
-                    movies.add(movie2);
+        try { List<Movie> movieList = new ArrayList<>(movieDao.readFromFile(PATH).stream().toList());
+            for (int i = 0; i < movieList.size(); i++) {
+                if (movieList.get(i).getId() == movieId){
+                    movieList.get(i).setId(movieId);
+                    movieList.get(i).setName(movie.getName());
+                    movieList.get(i).setGenre(movie.getGenre());
+                    movieList.get(i).setDate(movie.getDate());
                 }
             }
-            movies.add(movie);
-            movieDao.writeToFile(PATH, movies);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            movieList.forEach(System.out::println);
+            movieDao.writeToFile(PATH,movieList);
+        } catch (RuntimeException | FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

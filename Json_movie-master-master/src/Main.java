@@ -18,14 +18,13 @@ public class Main {
         movieList.add(new Movie(1, "Forest Gump", Genre.Drama, LocalDate.of(1994, 3, 21), 678226465));
         movieList.add(new Movie(3, "Slumdog Millionaire", Genre.Drama, LocalDate.of(2008, 8, 30), 378000000));
         movieList.add(new Movie(4, "Wolf creek", Genre.Drama, LocalDate.of(1983, 11, 10), 123456789));
-        MovieDaoImpl movieDao = new MovieDaoImpl();
-        movieDao.writeToFile("movie.json", movieList);
-        movieDao.readFromFile("movie.json");
+//        MovieDaoImpl movieDao = new MovieDaoImpl();
+//        movieDao.writeToFile("movie.json", movieList);
+//        System.out.println(movieDao.readFromFile("movie.json"));
         MovieServiceImpl movieService = new MovieServiceImpl();
-        System.out.println(movieService.findById(4));
-        System.out.println(movieService.findByName("Forest gump"));
-        System.out.println(movieService.sortByDate());
-        System.out.println(movieService.filterByGenre(Genre.Drama));
+//        System.out.println(movieService.filterByGenre(Genre.Fantasy));
+         movieService.updateById(3,new Movie(2,"1+1",Genre.Drama,LocalDate.of(2006,3,23),2303493));
+
 
 
     }
